@@ -1,4 +1,4 @@
-name: First-github-actions-pipeline
+name: Multi-job-pipeline
 
 on: push
 
