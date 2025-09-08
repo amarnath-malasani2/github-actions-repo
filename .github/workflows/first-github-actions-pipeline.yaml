@@ -8,6 +8,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+        
+      - name: checkout git repo
+        uses: actions/checkout@v5
+        
       - name: First step
         run: echo "first step"
 
@@ -16,5 +20,5 @@ jobs:
       
       - name: show readme.md file content
         run: cat README.md
-        
+
 
