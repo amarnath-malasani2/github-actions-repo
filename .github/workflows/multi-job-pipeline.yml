@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v4
       - name: download files using wget
         run: |
-            wget https://www.datablist.com/customers-100.csv
+            wget https://raw.githubusercontent.com/datablist/sample-csv-files/main/files/customers/customers-100.csv
             cat customers-100.csv
         
 
