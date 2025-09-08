@@ -1,0 +1,32 @@
+name: docker-practice
+
+on: push
+
+env: 
+  IMAGE_NAME: amarnath
+  IMAGE_TAG: 1.1.${{ github.run_number }} 
+
+jobs:
+  docker_build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Docker build
+        run: |
+          echo "Building Docker image..."
+          echo "docker build -t $IMAGE_NAME:$IMAGE_TAG . "
+
+      - name: Docker login
+        env:
+          DOCKER_USER: anmarnath
+          DOCKER_PASSWD: Ssamar143@s
+        run: |
+          echo "$DOCKER_PASSWD" | echo " docker login -u "$DOCKER_USER" --password-stdin "
+
+      - name: Docker push
+        run: |
+          echo "Pushing Docker image $IMAGE_NAME:$IMAGE_TAG ..."
+          echo "docker push $IMAGE_NAME:$IMAGE_TAG "
