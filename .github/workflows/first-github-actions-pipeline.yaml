@@ -1,0 +1,20 @@
+name: First-github-actions-pipeline
+
+on: push
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: First step
+        run: echo "first step"
+
+      - name: list files
+        run: ls -lrth
+      
+      - name: show readme.md file content
+        run: cat README.md
+        
+
