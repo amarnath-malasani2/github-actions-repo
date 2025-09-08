@@ -1,20 +1,28 @@
 name: Multi-job-pipeline
 
-on: push
-
+on:
+  push:
+    branches:
+      - main   # ✅ only run when pushing to main branch
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-        
-      - name: checkout git repo
+      - name: Checkout git repo
         uses: actions/checkout@v4
-      - name: download files using wget
+
+      - name: Create a new file with some content
         run: |
-            wget https://raw.githubusercontent.com/datablist/sample-csv-files/main/files/customers/customers-100.csv
-            cat customers-100.csv
-        
+          echo "This is a new file created by GitHub Actions" > newfile.txt
+          echo "Second line added to the file" >> newfile.txt
+          echo "Job completed successfully!" >> newfile.txt
+
+      - name: Show the file content
+        run: cat newfile.txt
+
+      - name: List files
+        run: ls -lrth
 
 
